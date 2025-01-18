@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Card Resume - Enhanced</title>
+    <style>
+        /* Header Styling */
+        .aurora-header {
+                            position: fixed;
+                                     top: 0;
+                                     left: 0;
+                           width: 100%;
+                           height: 120px; /* Taller header for better visibility */
+                            display: flex;
+                           justify-content: center;
+                            align-items: center;
+                            z-index: 1000;
+                            color: #fff;
+                               font-size: 1.8rem; /* Previous font size */
+                               font-weight: bold;
+                                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+                                background: radial-gradient(circle, #00aaff, transparent);
+                               overflow: hidden;
+        }
+
+        .aurora-header::after {
+                                  content: '';
+                                     position: absolute;
+                                     top: -50%;
+                                     left: -50%;
+                                     width: 200%;
+                                     height: 200%;
+                                     background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.6), transparent 70%);
+                                       animation: aurora-shift 3s infinite linear; /* Faster animation */
+                                      z-index: -1;
+        }
+
+        @keyframes aurora-shift {
+                                    0% {
+                                          transform: translate(0%, 0%);
+                                    }
+                                     25% {
+                                          transform: translate(50%, -30%);
+                                    }
+                                     50% {
+                                              transform: translate(100%, 50%);
+                                    }
+                                    75% {
+                                           transform: translate(-50%, 30%);
+                                    }
+                                    100% {
+                                               transform: translate(0%, 0%);
+                                    }
+        }
+
+        body {
+                 margin: 0;
+                     padding-top: 120px; /* Matches the header height */
+        }
+
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f23, #1c1c3b);
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Card Grid */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            width: 90%;
+            padding: 20px;
+        }
+
+        /* Individual Card */
+        .card {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .card-front {
+            background: linear-gradient(135deg, #162447, #1f4068);
+            color: #00d4ff;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .card-back {
+            background: #0f0f23;
+            color: #fff;
+            transform: rotateY(180deg);
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+        }
+        .card-back h2 {
+            font-size: 1.6rem;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .card-back ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .card-back ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .card-back ul li span {
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        .card-back p {
+            line-height: 1.6;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <header class="aurora-header">
+        <h1>Welcome to SHRAVAN's Resume</h1>
+    </header>
+    
+    
+
+
+
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Card Container -->
+    <div class="container">
+        <!-- Contact Card -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Contact</div>
+                <div class="card-back">
+                    <h2>Contact</h2>
+                    <img src="imag.jpg" alt="Your Photo" style="width: 60px; height: 60px; border-radius: 10%; margin-bottom: 10px;">
+                    <ul>
+                        <li><span>📧 Email:</span> <a href="mailto:shravankukkyan@gmail.com" style="color: #00d4ff;">shravankukkyan@gmail.com</a></li>
+                        <li><span>📱 Phone:</span> <a href="tel:8105157627" style="color: #00d4ff;">8105157627</a></li>
+                        <li><span>🏠 Address:</span> Varabailu House, Kellaputthige Mangalore</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Objective Card -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Objective</div>
+                <div class="card-back">
+                    <h2>Objective</h2>
+                    <p>To enhance my professional skills, capabilities, and knowledge in an organization which recognizes the value of hard work and trusts me with responsibilities and challenges.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Card -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Education</div>
+                <div class="card-back">
+                    <h2>Education</h2>
+                    <ul>
+                        <li><span>SSLC:</span> 83.68%</li>
+                        <li><span>PUC:</span> 86%</li>
+                        <li><span>Diploma:</span> 86%</li>
+                        <li><span>B.E:</span> 72%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Card -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Skills</div>
+                <div class="card-back">
+                    <h2>Skills</h2>
+                    <ul>
+                        <li>👨‍💻 C Language</li>
+                        <li>☕ Basic Java</li>
+                        <li>💾 MySQL</li>
+                        <li>📊 Power BI</li>
+                        <li>📈 Excel</li>
+                        <li>📐 QCad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Card -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Projects</div>
+                <div class="card-back">
+                    <h2>Projects</h2>
+                    <ul>
+                        <li>> Dynamic Traffic Optimization</li>
+                        <li>> Hospital Management System</li>
+                        <li>> Drowsiness Detection System</li>
+                        <li>> IoT-based Parking System</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Internships Card -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Internships</div>
+                <div class="card-back">
+                    <h2>Internships</h2>
+                    <ul>
+                        <li>> Exposys Datalabs - Web Development (2 months)</li>
+                        <li>> System Tron - Python Programming (1 month)</li>
+                        <li>> Great Learning - Excel for Beginners</li>
+                        <li>> Great Learning - DSA in Java</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages Card -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Languages</div>
+                <div class="card-back">
+                    <h2>Languages</h2>
+                    <ul>
+                        <li>> Tulu</li>
+                        <li>> Kannada</li>
+                        <li>> English</li>
+                        <li>> Hindi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interests Card -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Interests</div>
+                <div class="card-back">
+                    <h2>Interests</h2>
+                    <ul>
+                        <li>> Physical Enthusiast</li>
+                        <li>> Gardening and Agriculture</li>
+                        <li>> Reading Books</li>
+                        <li>> Crypto Market Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particles.js Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100 },
+                color: { value: '#00d4ff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.3 },
+                size: { value: 4 },
+                line_linked: { enable: true, distance: 150, color: '#00d4ff' },
+                move: { enable: true, speed: 2 }
+            }
+        });
+    </script>
+</body>
+</html>
